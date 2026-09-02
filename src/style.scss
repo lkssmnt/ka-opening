@@ -1,0 +1,237 @@
+@font-face {
+  font-family: "Gravity";
+  src: url("/src/ABCGravitySuperfamilyVariableTrial.ttf") format("truetype");
+}
+
+:root {
+  color-scheme: dark;
+  --bg: #FF4000;
+  --text-color: #00A6DD;
+
+  --bg-00: #00A6DD;
+  --text-color-00: #FF4000;
+
+  --bg-01: #FF00FD;
+  --text-color-01: #00FF02;
+
+  --bg-02: #EDFF21;
+  --text-color-02: #1300DE;
+
+  --bg-03: #00FF02;
+  --text-color-03: #FF00FD;  
+
+  font-size: 1.75vw;
+}
+
+html {
+  background-color: var(--bg);
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+  list-style: none;
+  font-family: "Gravity", sans-serif;
+}
+
+body,
+html {
+  // min-height: 100%;
+  // overflow: hidden;
+  // background:
+  //   radial-gradient(circle at top left, rgba(129, 255, 57, 0.18), transparent 34%),
+  //   radial-gradient(circle at top right, rgba(0, 208, 255, 0.14), transparent 30%),
+  //   linear-gradient(160deg, #280462 0%, #1b033c 55%, #110225 100%);
+}
+
+.karl {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  z-index: 15;
+  cursor: pointer;
+
+  .karl-rope {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+
+    line {
+      stroke: black;
+      stroke-width: 2;
+    }
+  }
+
+  .karl-character {
+    position: relative;
+    z-index: 1;
+  }
+
+  img {
+    display: block;
+  }
+}
+
+.hero {
+  position: sticky;
+  inset: 0;
+  height: 100svh;
+  width: 100%;
+  z-index: 1;    
+
+  .subline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    padding-bottom: 1rem;
+  }
+
+  .logo {
+    height: 100%;
+    width: 100%;
+    // background: red;
+    display: grid;
+    place-items: center;
+    padding: 3rem;
+
+    --cursor-x: 50%;
+    --cursor-y: 50%;
+    mix-blend-mode: difference;
+
+    cursor: none;
+
+    .anders-cursor {
+      // display: none;
+
+      position: absolute;
+      top: var(--cursor-y);
+      left: var(--cursor-x);
+      // transform: translate(-50%, -50%);
+      color: var(--bg);
+      background: var(--text-color);
+      font-size: 1.5rem;
+      pointer-events: none;
+      border-radius: 3rem;
+
+      transition: transform 150ms ease-out, padding 250ms ease-out;
+      padding: 0.2rem .75rem;
+      transform-origin: center center;
+      transform: translate(-50%, -50%) scale(0);
+      
+      &.active {
+        transform: translate(-50%, -50%) scale(1);
+        // display: block;
+      }
+    }
+
+    .logo-mark {
+      width: 100%;
+      height: 100%;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.text-slide {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100svh;
+  background: var(--bg);
+  z-index: 2;
+  color: var(--text-color);
+  display: grid;
+  place-items: center;
+  padding: 4rem 2rem;
+
+  font-size: 2rem;
+}
+
+.text {
+  p {
+    margin-bottom: 1rem;
+  }
+}
+
+header {
+  position: fixed;
+  top: 0.5rem;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  // height: 100svh;
+
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  font-size: 1rem;
+
+  h1 {
+    letter-spacing: -0.05em;
+
+    .letter {
+      display: inline-block;
+      white-space: pre;
+      transition: font-variation-settings 250ms ease-out;
+    }
+  }
+
+  ul {
+    // width: 100%;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    transform: translateY(-33%);
+    padding: .5rem 1rem;
+    background: var(--text-color);
+    border-radius: .5rem;
+
+  }
+
+  li {
+    cursor: pointer;
+    transition: color 250ms ease-out;
+    // font-variation-settings: "wght" 500, "wdth" 100;
+    transition: font-variation-settings 250ms ease-out, width 250ms ease-out, color 250ms ease-out;
+    color: var(--bg);
+
+    .letter {
+      display: inline-block;
+      white-space: pre;
+      font-variation-settings: "wght" var(--weight, 300), "wdth" var(--width, 100);
+      transition: font-variation-settings 250ms ease-out;
+      transition-delay: var(--letter-delay, 0ms);
+    }
+
+    &.active {
+      // color: white;
+      font-variation-settings: "wght" 900, "wdth" 200;
+    }
+
+    &:not(.active) {
+      &:hover {
+        // color: white;
+        // font-variation-settings: "wght" 400, "wdth" 105;
+        // margin-left: -1.9px;
+        // margin-right: -1.9px;
+      }
+    }
+  }
+}

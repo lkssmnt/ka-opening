@@ -50,7 +50,7 @@
     </header>    
 
     <div class="hero">
-      <div class="logo" x-data="heroLogo()" @click="next()" @mouseenter="$refs.cursor.classList.add('active')" @mouseleave="$refs.cursor.classList.remove('active')" @mousemove="$el.style.setProperty('--cursor-x', `${event.clientX}px`); $el.style.setProperty('--cursor-y', `${event.clientY}px`);">
+      <div class="logo" x-data="heroLogo()" @click="next()" @pointerdown="$refs.cursor.classList.add('clicking')" @pointerup.window="$refs.cursor.classList.remove('clicking')" @pointercancel.window="$refs.cursor.classList.remove('clicking')" @mouseenter="$refs.cursor.classList.add('active')" @mouseleave="$refs.cursor.classList.remove('active')" @mousemove="$el.style.setProperty('--cursor-x', `${event.clientX}px`); $el.style.setProperty('--cursor-y', `${event.clientY}px`);">
         <div class="anders-cursor" x-ref="cursor">ANDERS</div>        
         <div class="logo-mark" role="img" aria-label="Karl Anders" x-html="svgMarkup"></div>
       </div>
@@ -58,12 +58,12 @@
       <p class="subline">Studio for Contemporary Branding</p>
     </div>
 
-    <div class="text-slide">
+    <!-- <div class="text-slide">
       <div class="text">
         <p>Karl Anders builds brands for constant change. As a partner in transformation, we work with companies, institutions and public organizations.</p>
         <p>Combining strategy, design, communication and implementation into brands built for the Next.Now.</p>
       </div>
-    </div>
+    </div> -->
 
 
     <script type="module" src="/src/main.js"></script>

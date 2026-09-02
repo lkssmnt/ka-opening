@@ -81,11 +81,13 @@ html {
 }
 
 .hero {
-  position: sticky;
+  position: relative;
   inset: 0;
   height: 100svh;
   width: 100%;
   z-index: 1;    
+  overflow: hidden;
+  background: var(--bg);
 
   .subline {
     position: absolute;
@@ -108,7 +110,7 @@ html {
 
     --cursor-x: 50%;
     --cursor-y: 50%;
-    mix-blend-mode: difference;
+    // mix-blend-mode: difference;
 
     cursor: none;
 
@@ -121,6 +123,14 @@ html {
       // transform: translate(-50%, -50%);
       color: var(--bg);
       background: var(--text-color);
+
+      z-index: 100;
+
+      // color: black;
+      // background: white;
+
+      // mix-blend-mode: difference;
+
       font-size: 1.5rem;
       pointer-events: none;
       border-radius: 3rem;
@@ -133,6 +143,10 @@ html {
       &.active {
         transform: translate(-50%, -50%) scale(1);
         // display: block;
+      }
+
+      &.clicking {
+        transform: translate(-50%, -50%) scale(0.8);
       }
     }
 

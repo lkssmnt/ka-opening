@@ -31,7 +31,7 @@ export default () => ({
 
     gsap.timeline()
       .delay(0.5)
-      .fromTo(this.$el, { y: -window.innerHeight }, { y: 10, duration: 0.8, ease: "elastic.out(0.15, 0.12)" })
+      .fromTo(this.$el, { y: -window.innerHeight }, { y: 10, duration: 0.8, ease: "elastic.out(0.15, 0.1)" })
   },
 
   startle() {
